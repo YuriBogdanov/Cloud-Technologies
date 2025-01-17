@@ -17,7 +17,7 @@ function App() {
         type="text"
         value={brand}
         onChange={(e) => setBrand(e.target.value)}
-        placeholder="Введите название бреда"
+        placeholder="Введите название бренда"
       />
       <button onClick={handleAnalyze}>Анализ</button>
 
