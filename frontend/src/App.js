@@ -3,10 +3,12 @@ import { analyzeBrand } from './api/api';
 
 function App() {
   const [brand, setBrand] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
   const [analysisResult, setAnalysisResult] = useState(null);
 
   const handleAnalyze = async () => {
-    const result = await analyzeBrand(brand);
+    const result = await analyzeBrand(brand, startDate, endDate);
     setAnalysisResult(result);
   };
 
@@ -19,6 +21,21 @@ function App() {
         onChange={(e) => setBrand(e.target.value)}
         placeholder="Введите название бренда"
       />
+
+      <input
+        type="date"
+        value={startDate}
+        onChange={(e) => setStartDate(e.target.value)}
+        placeholder="Начальная дата"
+      />
+
+      <input
+        type="date"
+        value={endDate}
+        onChange={(e) => setEndDate(e.target.value)}
+        placeholder="Конечная дата"
+      />
+
       <button onClick={handleAnalyze}>Анализ</button>
 
       {analysisResult && (

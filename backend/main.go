@@ -5,6 +5,7 @@ import (
 	"log"
 	"my-app/backend/services"
 	"net/http"
+	"time"
 
 	"github.com/rs/cors"
 )
@@ -18,9 +19,24 @@ type AnalysisResult struct {
 
 func analyzeHandler(w http.ResponseWriter, r *http.Request) {
 	brand := r.URL.Query().Get("brand")
+	startDate := r.URL.Query().Get("start_date")
+	endDate := r.URL.Query().Get("end_date")
+
+	// Конвертация дат в Unix timestamp
+	startTime, err := time.Parse("2006-01-02", startDate)
+	if err != nil {
+		http.Error(w, "Неверный формат начальной даты", http.StatusBadRequest)
+		return
+	}
+
+	endTime, err := time.Parse("2006-01-02", endDate)
+	if err != nil {
+		http.Error(w, "Неверный формат конечной даты", http.StatusBadRequest)
+		return
+	}
 
 	// Поиск постов в VK
-	vkPosts, err := services.SearchVKPosts(brand)
+	vkPosts, err := services.SearchVKPosts(brand, startTime.Unix(), endTime.Unix())
 	if err != nil {
 		http.Error(w, "Ошибка при поиске в VK", http.StatusInternalServerError)
 		return
