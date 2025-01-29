@@ -1,8 +1,8 @@
 /* Основные стили */
 body {
   /* background-image: url("../public/images/gif6.gif"); Пример анимированного фона */
-  /* background-image: url("https://i.gifer.com/7VE.gif");  */
-  background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHh6aTc0bzlzd3VuN3Q4eHBqbnI5d3RvYzVmNG93dXEwdzFxbnpybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zTQQPJXn1j8Jy/giphy.gif");
+  background-image: url("https://i.gifer.com/7VE.gif"); 
+  /* background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHh6aTc0bzlzd3VuN3Q4eHBqbnI5d3RvYzVmNG93dXEwdzFxbnpybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zTQQPJXn1j8Jy/giphy.gif"); */
   background-repeat: repeat;
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: #333;
